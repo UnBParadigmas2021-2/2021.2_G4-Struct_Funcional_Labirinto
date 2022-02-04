@@ -1,36 +1,28 @@
-# RepositorioTemplate
-Esse repositório é para ser utilizado pelos grupos como um template inicial, da home page do Projeto.
-
-**!! *Atenção: Renomeie o seu repositório para (Ano.Semestre)_(Grupo)_(Paradigma)_(NomeDoProjeto)*. !!** 
-
-Paradigmas:
- - Funcional
- - Logico
- - SMA
-
-**!! *Não coloque os nomes dos alunos no título do repositório*. !!**
-
-**!! *Exemplo de título correto: 2021.2_G1_Logico_ProjetoRoteirosAereos*. !!**
- 
- (Apague essa seção)
-
-# NomeDoProjeto
+# Labirinto
 
 **Disciplina**: FGA0210 - PARADIGMAS DE PROGRAMAÇÃO - T01 <br>
-**Nro do Grupo**: XX<br>
-**Paradigma**: XXXXXXXXXX<br>
+**Número do Grupo**: 04<br>
+**Paradigma**: Funcional<br>
+**Liguagem**: Elm
 
 ## Alunos
-|Matrícula | Aluno |
-| -- | -- |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
+| Matrícula  |               Aluno                  |
+| :--------: |  :---------------------------------- |
+| 18/0041444 |  Brenda Vitória dos Santos           |
+| 18/0037439 |  Sérgio de Almeida Cipriano Junior   |
+| 17/0115500 |  Vinicius Vieira de Souza            |
+| 18/0028685 |  Victor Samuel dos Santos            |
+| 18/0028324 |  Thiago Luiz de Souza Gomes          |
+| 18/0052616 |  Estevão de Jesus Reis               |
+| 15/0005563 |  Andre Lucas Ferreira Lemos de Souza |
+| 18/0030272 |  Antonio Ruan Moura Barreto          |
+| 18/0033743 |  Joao Pedro Silva de Carvalho        |
 
 ## Sobre 
-Descreva o seu projeto em linhas gerais. 
+O projeto consiste em um jogo de labirinto, desenvolvido em linguagem funcional (Elm), que visa desafiar e entreter o usuário na busca por um caminho que o leve a uma das possíveis saídas.
 
 ## Screenshots
-Adicione 2 ou mais screenshots do projeto em termos de interface e/ou funcionamento.
+2 ou mais, em breve.
 
 ## Instalação 
 **Linguagens**: xxxxxx<br>
