@@ -19,7 +19,7 @@
 | 18/0033743 |  Joao Pedro Silva de Carvalho        |
 
 ## Sobre 
-O projeto consiste em um jogo de labirinto, desenvolvido em linguagem funcional (Elm), que visa desafiar e entreter o usuário na busca por um caminho que o leve a uma das possíveis saídas.
+O projeto consiste em um jogo de labirinto, desenvolvido em linguagem funcional (Elm), que visa aplicar algoritmos de grafo para gerar e solucionar labirintos.
 
 ## Screenshots
 2 ou mais, em breve.
