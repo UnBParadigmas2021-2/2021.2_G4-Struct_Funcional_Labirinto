@@ -25,12 +25,17 @@ O projeto consiste em um jogo de labirinto, desenvolvido em linguagem funcional 
 2 ou mais, em breve.
 
 ## Instalação 
-**Linguagens**: xxxxxx<br>
-**Tecnologias**: xxxxxx<br>
-Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
-Insira um manual ou um script para auxiliar ainda mais.
+**Linguagens**: Elm<br>
+
+Caso você queira compilar o projeto do zero, basta executar:
+```
+$ elm make src/*
+```
+
+Assim, você gera o arquivo "index.html". Você pode abrir esse arquivo em qualquer navegador.
 
 ## Uso 
+
 Explique como usar seu projeto, caso haja algum passo a passo após o comando de execução.
 
 ## Vídeo
