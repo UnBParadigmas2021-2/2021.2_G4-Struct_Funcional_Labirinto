@@ -31,7 +31,7 @@ O projeto consiste em um jogo de labirinto, desenvolvido em linguagem funcional 
 
 Caso você queira compilar o projeto do zero, basta executar:
 ```
-$ elm make src/*
+$ docker-compose up --build
 ```
 
 Assim, você gera o arquivo "index.html". Você pode abrir esse arquivo em qualquer navegador.
