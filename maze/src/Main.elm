@@ -1,44 +1,29 @@
 module Main exposing (main)
 
 import BoxDrawing exposing (..)
-import Html
 
 
-
--- 15 rows x 20 columns
-
-
-graph : List (List Int)
+graph : List (List ( number, number ))
 graph =
-    [ [ 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0 ]
-    , [ 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0 ]
-    , [ 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0 ]
-    , [ 1, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0 ]
-    , [ 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0 ]
-    , [ 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0 ]
-    , [ 1, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0 ]
-    , [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
-    , [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
-    , [ 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0 ]
-    , [ 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0 ]
-    , [ 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0 ]
-    , [ 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0 ]
-    , [ 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0 ]
-    , [ 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0 ]
+    [ [ ( 1, 1 ), ( 1, 2 ), ( 1, 3 ), ( 1, 4 ) ]
+    , [ ( 2, 1 ), ( 2, 2 ), ( 2, 3 ), ( 2, 4 ) ]
+    , [ ( 3, 1 ), ( 3, 2 ), ( 3, 3 ), ( 3, 4 ) ]
+    , [ ( 4, 1 ), ( 4, 2 ), ( 4, 3 ), ( 4, 4 ) ]
     ]
 
-while : (Int -> Bool) -> Int -> Program () () () -> Program () () ()
-while condition initialState body =
-  if not (condition initialState) then picture ( 5, 3 ) <| [ rectangle 5 3 single ]
-  else while condition (initialState + 1) body
-
-verify : Int -> Bool
-verify state =
-  state < 1000
-
-drawMaze =
-  while (verify) 0 (picture ( 5, 3 ) <| [ rectangle 5 3 single ])
 
 main : Program () () ()
 main =
-  drawMaze
+    picture ( 50, 50 ) <|
+        List.map
+            (\x ->
+                group
+                    (List.map
+                        (\y ->
+                            rectangle 1 1 single
+                                |> move (Tuple.first y) (Tuple.second y)
+                        )
+                        x
+                    )
+            )
+            graph
