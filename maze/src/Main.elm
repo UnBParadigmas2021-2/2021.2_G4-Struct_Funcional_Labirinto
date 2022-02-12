@@ -1,4 +1,4 @@
-module Example3 exposing (main)
+module Main exposing (main)
 
 import BoxDrawing exposing (..)
 import Html

@@ -1,0 +1,11 @@
+version: '3.3'
+
+services:
+  maze:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - './maze:/app'
+    ports:
+      - 3000:3000
