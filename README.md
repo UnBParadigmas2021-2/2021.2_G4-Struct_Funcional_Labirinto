@@ -5,18 +5,21 @@
 **Paradigma**: Funcional<br>
 **Liguagem**: Elm
 
-## Alunos
-| Matrícula  |               Aluno                  |
-| :--------: |  :---------------------------------- |
-| 18/0041444 |  Brenda Vitória dos Santos           |
-| 18/0037439 |  Sérgio de Almeida Cipriano Junior   |
-| 17/0115500 |  Vinicius Vieira de Souza            |
-| 18/0028685 |  Victor Samuel dos Santos            |
-| 18/0028324 |  Thiago Luiz de Souza Gomes          |
-| 18/0052616 |  Estevão de Jesus Reis               |
-| 15/0005563 |  Andre Lucas Ferreira Lemos de Souza |
-| 18/0030272 |  Antonio Ruan Moura Barreto          |
-| 18/0033743 |  Joao Pedro Silva de Carvalho        |
+
+## Membros
+
+| Foto | Matrícula | Nome | GitHub |
+|:--:|:--:|:--:|:--:|
+| <img src="./images/members/andre.jpg" width="100">| 15/0005563 | Andre Lucas Ferreira Lemos de Souza | 
+| <img src="./images/members/brenda.jpg" width="100">| 18/0041444 | Brenda Vitória dos Santos | 
+| <img src="./images/members/estevao.jpg" width="100">| 17/0032591 | Brenda Vitória dos Santos  | 
+| <img src="./images/members/joao.jpg" width="100">| 18/0052616 | Estevão de Jesus Reis | 
+| <img src="./images/members/ruan.jpg" width="100">| 18/0033743 | Joao Pedro Silva de Carvalho | 
+| <img src="./images/members/sergio.jpg" width="100">| 18/0030272 | Antonio Ruan Moura Barreto | [@RuanMoura](https://github.com/RuanMoura) 
+| <img src="./images/members/thiago.jpg" width="100">| 18/0037439 | Sérgio de Almeida Cipriano Junior | 
+| <img src="./images/members/thiago.jpg" width="100">| 18/0028324 | Thiago Luiz de Souza Gomes| [@thiagomesUNB](https://github.com/thiagomesUNB) 
+| <img src="./images/members/victor.jpg" width="100">| 18/0028685 | Victor Samuel dos Santos Lucas| [@victordsantoss](https://github.com/victordsantoss) 
+| <img src="./images/members/vini.jpg" width="100">| 17/0115500 | Vinicius Vieira de Souza | [@faco400](https://github.com/faco400) 
 
 ## Sobre 
 O projeto consiste em um jogo de labirinto, desenvolvido em linguagem funcional (Elm), que visa aplicar algoritmos de grafo para gerar e solucionar labirintos.
