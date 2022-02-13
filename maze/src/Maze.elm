@@ -3,15 +3,29 @@ module Maze exposing (draw_graph, graph)
 import BoxDrawing exposing (move, rectangle, single)
 import Matrix exposing (Matrix, height, width, unsafeGet)
 
+rows : Int
+rows = 4
+
+columns : Int
+columns = 3
+
+size : Int -> Int -> Int
+size a b =
+    a*b
+
+
+generate_list : Int -> List Int
+generate_list m =
+    List.range 1 m
+        |> List.concatMap
+            (\i ->
+                [1]
+            )
+
 
 graph : Matrix Int
 graph =
-    Matrix.graphFromList 4 3 [
-        0, 0, 1, 
-        1, 1, 0, 
-        0, 1, 1, 
-        1, 1, 1
-    ]
+    Matrix.graphFromList rows columns (generate_list (size rows columns))
 
 infinity : number
 infinity = 10000000
