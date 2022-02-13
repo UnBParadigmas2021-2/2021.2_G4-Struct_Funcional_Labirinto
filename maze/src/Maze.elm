@@ -2,24 +2,34 @@ module Maze exposing (draw_graph, graph)
 
 import BoxDrawing exposing (move, rectangle, single)
 import Matrix exposing (Matrix, height, width, unsafeGet)
+import Random 
 
 rows : Int
-rows = 4
+rows = 80
 
 columns : Int
-columns = 3
+columns = 80
 
 size : Int -> Int -> Int
 size a b =
     a*b
 
+generator : Random.Generator Int
+generator = 
+    Random.int 0 1
+
+calc : Int -> Int
+calc n = (n^7)//777
+
+get_seed : Int -> Random.Seed
+get_seed i = Random.initialSeed (calc i)
 
 generate_list : Int -> List Int
 generate_list m =
     List.range 1 m
         |> List.concatMap
             (\i ->
-                [1]
+                [ Tuple.first <| Random.step generator (get_seed i)]
             )
 
 
@@ -30,6 +40,10 @@ graph =
 infinity : number
 infinity = 10000000
 
+border_conditional : Int -> Int -> Bool
+border_conditional i j = 
+    (i == 1 || j == 1 || i == rows || j == columns)
+
 draw_graph : Matrix Int -> List BoxDrawing.Shape
 draw_graph m =
     List.range 1 (height m)
@@ -38,7 +52,7 @@ draw_graph m =
                 List.range 1 (width m)
                     |> List.concatMap
                         (\j ->
-                          if (unsafeGet i j m) == 1 then
+                          if (unsafeGet i j m) == 1 || border_conditional i j then
                             [ rectangle 1 1 single
                                 |> move j i
                             ]
