@@ -34,7 +34,7 @@ module Matrix exposing
     ( Matrix
     , empty, repeat, initialize, identity, fromList, fromLists
     , height, width, size
-    , get
+    , get, unsafeGet
     , map, map2, transpose, dot
     , toList, toLists, pretty
     )
