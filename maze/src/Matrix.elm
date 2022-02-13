@@ -34,7 +34,7 @@ module Matrix exposing
     ( Matrix
     , empty, repeat, initialize, identity, fromList, fromLists
     , height, width, size
-    , get, unsafeGet
+    , get, unsafeGet, graphFromList
     , map, map2, transpose, dot
     , toList, toLists, pretty
     )
@@ -184,6 +184,20 @@ get i j (Matrix { nrows, ncols, mvect }) =
 
     else
         Array.get (encode ncols ( i, j )) mvect
+
+
+unsafeGraphGetFromList : Int -> List Int -> Int
+unsafeGraphGetFromList index list =
+    case itemAt index list of
+        Just value ->
+            value
+
+        Nothing ->
+            0
+
+graphFromList : Int -> Int -> List Int -> Matrix Int
+graphFromList n m list =
+    initialize n m (\i -> unsafeGraphGetFromList (encode m i) list)
 
 
 {-| Create a matrix from a list given the desired size.
