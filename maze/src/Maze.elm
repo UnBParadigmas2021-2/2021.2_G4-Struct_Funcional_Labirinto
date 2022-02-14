@@ -44,6 +44,13 @@ border_conditional : Int -> Int -> Bool
 border_conditional i j = 
     (i == 1 || j == 1 || i == rows || j == columns)
 
+entrance_conditional: Int -> Int -> Bool
+entrance_conditional i j =
+    (i == 12 && j == 1)
+
+exit_conditional i j =
+    (i == 75  && j == 80)
+    
 draw_graph : Matrix Int -> List BoxDrawing.Shape
 draw_graph m =
     List.range 1 (height m)
@@ -52,7 +59,11 @@ draw_graph m =
                 List.range 1 (width m)
                     |> List.concatMap
                         (\j ->
-                          if (unsafeGet i j m) == 1 || border_conditional i j then
+                          if entrance_conditional i j  || exit_conditional i j then
+                          [ rectangle 0 0 single
+                              |> move infinity infinity
+                          ]
+                          else if (unsafeGet i j m) == 1 || border_conditional i j then
                             [ rectangle 1 1 single
                                 |> move j i
                             ]
