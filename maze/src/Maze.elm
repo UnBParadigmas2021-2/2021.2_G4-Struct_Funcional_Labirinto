@@ -7,18 +7,35 @@ import Random
 
 rows : Int
 rows =
-    80
+    50
 
 
 columns : Int
 columns =
-    80
+    50
+
+
+restoDiv: Int -> Int -> Int
+restoDiv dividendo divisor =
+    if dividendo == 0 || divisor == 1 then 
+        0
+    else if dividendo < divisor then 
+        dividendo
+    else 
+        restoDiv (dividendo - divisor) divisor
 
 
 size : Int
 size =
     rows * columns
 
+checkDiagonal : Int -> Bool
+checkDiagonal i = 
+    let
+        r = (i-1)//rows
+        c = restoDiv (i-1) columns
+    in 
+        (r == c || r-1 == c)
 
 generator : Random.Generator Int
 generator =
@@ -40,7 +57,10 @@ generateList m =
     List.range 1 m
         |> List.concatMap
             (\i ->
-                [ Tuple.first <| Random.step generator (getSeed i) ]
+                if checkDiagonal i then
+                    [0]
+                else
+                    [ Tuple.first <| Random.step generator (getSeed i)]
             )
 
 
@@ -66,7 +86,9 @@ mazeEntranceConditional i j =
 
 mazeExitConditional : Int -> Int -> Bool
 mazeExitConditional i j =
-    i == 75 && j == 80
+    (i == 1 && j == 1) || 
+    (i == 1 && j == 2) ||
+    (i == rows && j == columns)
 
 
 drawGraph : Matrix Int -> List BoxDrawing.Shape
