@@ -1,4 +1,4 @@
-module Maze exposing (drawGraph, graph)
+module Maze exposing (drawGraph, graph, rows, columns)
 
 import BoxDrawing exposing (move, rectangle, single)
 import Matrix exposing (Matrix, height, unsafeGet, width)
