@@ -45,6 +45,3 @@ Adicione 1 ou mais vídeos com a execução do projeto.
 
 ## Outros 
 Quaisquer outras informações sobre seu projeto podem ser descritas a seguir.
-
-## Fontes
-Caso utilize materiais de terceiros, referencie-os adequadamente.
