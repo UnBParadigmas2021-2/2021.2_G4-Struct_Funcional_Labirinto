@@ -21,32 +21,47 @@
 | <img src="./images/members/vini.jpg" width="100">| 17/0115500 | Vinicius Vieira de Souza | [@faco400](https://github.com/faco400) 
 
 ## Sobre 
-O projeto consiste em um jogo de labirinto, desenvolvido em linguagem funcional (Elm), que visa aplicar algoritmos de grafo para gerar e solucionar labirintos.
+Esse projeto consiste em um jogo de Labirinto disponível em plataforma Web, desenvolvido em linguagem funcional (Elm), que visa aplicar algoritmos de grafo para gerar e solucionar labirintos.
 
 ## Screenshots
-<img src="https://media.discordapp.net/attachments/825425258437541938/942939887387148338/unknown.png?width=976&height=475" width="500">
 
-<img src="https://media.discordapp.net/attachments/825425258437541938/942940857454178385/unknown.png?width=982&height=475" width="500">
+### Tela Inicial
+<img src="./images/screenshot/screen50.png" width="500">
+<p>Simulação da geração do labirinto com um tamanho 50 linhas e 50 colunas.</p>
+</br>
+
+<img src="./images/screenshot/screen37.png" width="500">
+<p>Simulação da geração do labirinto com um tamanho 37 linhas e 37 colunas.</p>
+</br>
+
+<img src="./images/screenshot/screen4.png" width="500">
+<p>Simulação da geração do labirinto com um tamanho 4 linhas e 4 colunas.</p>
+</br>
+
+### Debug
+<img src="./images/screenshot/screenDebug.png" width="500">
+<p>Screenshot e Tela de Debug disponibilizada pela linguagem Elm.</p>
+</br>
+
 
 ## Instalação 
-**Linguagens**: Elm<br>
+### Linguagens: Elm - 0.19.1
+### Compilação: 
+> Caso você queira compilar o projeto do zero, basta executar:
 
-Caso você queira compilar o projeto do zero, basta executar:
-```
-$ docker-compose up --build
-```
+    $ docker-compose up --build
+> Assim, você gera o arquivo "index.html":
 
-Assim, você gera o arquivo "index.html" e pode abrir esse arquivo em qualquer navegador.
+    Agora é só abrir esse arquivo em qualquer navegador.
 
-## Uso 
+### Uso 
+> Após a execução do comando docker mostrado acima, basta abrir a porta apontada pelo projeto no navegador:
 
-Após a execução do comando docker mostrado acima, basta abrir a porta apontada pelo projeto no navegador:
-```
-http://localhost:3000/
-```
-E em seguida digitar no campo apresentado na tela o tamanho do labirinto que deseja gerar.
+    http://localhost:3000/
 
-## Vídeo
-Adicione 1 ou mais vídeos com a execução do projeto.
+> E em seguida digitar no campo apresentado na tela o tamanho do labirinto que deseja gerar.
 
-## Outros 
+    ex: 25
+
+## Vídeo 
+### Youtube: https://www.youtube.com/embed/oeKhZCkFu2s
