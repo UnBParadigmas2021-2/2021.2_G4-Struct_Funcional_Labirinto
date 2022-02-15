@@ -30,6 +30,7 @@ O projeto consiste em um jogo de labirinto, desenvolvido em linguagem funcional 
 
 ## Instalação 
 **Linguagens**: Elm<br>
+**Tecnologias**: create-elm-app, Docker, docker-compose, HTML<br>
 
 Caso você queira compilar o projeto do zero, basta executar:
 ```
