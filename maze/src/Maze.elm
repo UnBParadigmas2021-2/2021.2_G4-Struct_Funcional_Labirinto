@@ -56,10 +56,10 @@ getSeed i =
 
 generateList : Int -> List Int
 generateList m =
-    List.range 1 m
+    List.range 1 (m*m)
         |> List.concatMap
             (\i ->
-                if checkDiagonal i (m // 2) then
+                if checkDiagonal i m then
                     [ 0 ]
 
                 else
@@ -69,7 +69,7 @@ generateList m =
 
 graph : Int -> Matrix Int
 graph model =
-    Matrix.graphFromList model model (generateList (model * model))
+    Matrix.graphFromList model model (generateList (model))
 
 
 infinity : number
@@ -77,37 +77,34 @@ infinity =
     10000000
 
 
-borderConditional : Int -> Int -> Bool
-borderConditional i j =
-    i == 1 || j == 1 || i == rows || j == columns
+borderConditional : Int -> Int -> Int -> Bool
+borderConditional i j sizeGraph =
+    i == 1 || j == 1 || i == sizeGraph || j == sizeGraph
 
 
-mazeEntranceConditional : Int -> Int -> Bool
-mazeEntranceConditional i j =
-    i == 12 && j == 1
 
-
-mazeExitConditional : Int -> Int -> Bool
-mazeExitConditional i j =
+mazeConditional : Int -> Int -> Int -> Bool
+mazeConditional i j sizeGraph =
     (i == 1 && j == 1)
         || (i == 1 && j == 2)
-        || (i == rows && j == columns)
+        || (i == sizeGraph && j == sizeGraph)
+        || (i == sizeGraph && j == sizeGraph-1)
 
 
-drawGraph : Matrix Int -> List BoxDrawing.Shape
-drawGraph m =
-    List.range 1 (height m)
+drawGraph : Matrix Int -> Int -> List BoxDrawing.Shape
+drawGraph maze sizeGraph =
+    List.range 1 (height maze)
         |> List.concatMap
             (\i ->
-                List.range 1 (width m)
+                List.range 1 (width maze)
                     |> List.concatMap
                         (\j ->
-                            if mazeEntranceConditional i j || mazeExitConditional i j then
+                            if mazeConditional i j sizeGraph  then
                                 [ rectangle 0 0 single
                                     |> move infinity infinity
                                 ]
 
-                            else if unsafeGet i j m == 1 || borderConditional i j then
+                            else if unsafeGet i j maze == 1 || borderConditional i j sizeGraph then
                                 [ rectangle 1 1 single
                                     |> move j i
                                 ]

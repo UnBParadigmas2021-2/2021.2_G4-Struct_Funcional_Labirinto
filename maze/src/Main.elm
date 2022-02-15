@@ -48,7 +48,7 @@ view : Model -> Html Msg
 view model =
     div []
         [ div []
-            [ input [ placeholder "50", value model.content, onInput Change ] []
+            [ input [ placeholder "Insira um valor entre 4 e 50", value model.content, onInput Change ] []
             ]
         , Html.pre []
             [ div []
@@ -58,7 +58,7 @@ view model =
                             (drawGraph
                                 (graph
                                     (convert (String.toInt model.content))
-                                )
+                                ) (convert (String.toInt model.content))
                             )
                         ]
                 ]
