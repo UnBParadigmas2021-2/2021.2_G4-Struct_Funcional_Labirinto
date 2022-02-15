@@ -1,4 +1,4 @@
-module Maze exposing (drawGraph, graph, rows, columns)
+module Maze exposing (columns, drawGraph, graph)
 
 import BoxDrawing exposing (move, rectangle, single)
 import Matrix exposing (Matrix, height, unsafeGet, width)
@@ -15,27 +15,29 @@ columns =
     50
 
 
-restoDiv: Int -> Int -> Int
+restoDiv : Int -> Int -> Int
 restoDiv dividendo divisor =
-    if dividendo == 0 || divisor == 1 then 
+    if dividendo == 0 || divisor == 1 then
         0
-    else if dividendo < divisor then 
+
+    else if dividendo < divisor then
         dividendo
-    else 
+
+    else
         restoDiv (dividendo - divisor) divisor
 
 
-size : Int
-size =
-    rows * columns
-
-checkDiagonal : Int -> Bool
-checkDiagonal i = 
+checkDiagonal : Int -> Int -> Bool
+checkDiagonal i m =
     let
-        r = (i-1)//rows
-        c = restoDiv (i-1) columns
-    in 
-        (r == c || r-1 == c)
+        r =
+            (i - 1) // m
+
+        c =
+            restoDiv (i - 1) m
+    in
+    r == c || r - 1 == c
+
 
 generator : Random.Generator Int
 generator =
@@ -57,16 +59,17 @@ generateList m =
     List.range 1 m
         |> List.concatMap
             (\i ->
-                if checkDiagonal i then
-                    [0]
+                if checkDiagonal i (m // 2) then
+                    [ 0 ]
+
                 else
-                    [ Tuple.first <| Random.step generator (getSeed i)]
+                    [ Tuple.first <| Random.step generator (getSeed i) ]
             )
 
 
-graph : Matrix Int
-graph =
-    Matrix.graphFromList rows columns (generateList size)
+graph : Int -> Matrix Int
+graph model =
+    Matrix.graphFromList model model (generateList (model * model))
 
 
 infinity : number
@@ -86,9 +89,9 @@ mazeEntranceConditional i j =
 
 mazeExitConditional : Int -> Int -> Bool
 mazeExitConditional i j =
-    (i == 1 && j == 1) || 
-    (i == 1 && j == 2) ||
-    (i == rows && j == columns)
+    (i == 1 && j == 1)
+        || (i == 1 && j == 2)
+        || (i == rows && j == columns)
 
 
 drawGraph : Matrix Int -> List BoxDrawing.Shape
