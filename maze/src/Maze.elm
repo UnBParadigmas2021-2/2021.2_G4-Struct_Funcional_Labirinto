@@ -1,42 +1,32 @@
-module Maze exposing (columns, drawGraph, graph)
+module Maze exposing (drawGraph, graph)
 
 import BoxDrawing exposing (move, rectangle, single)
 import Matrix exposing (Matrix, height, unsafeGet, width)
 import Random
 
 
-rows : Int
-rows =
-    50
-
-
-columns : Int
-columns =
-    50
-
-
-restoDiv : Int -> Int -> Int
-restoDiv dividendo divisor =
-    if dividendo == 0 || divisor == 1 then
+remainder : Int -> Int -> Int
+remainder dividend divisor =
+    if dividend == 0 || divisor == 1 then
         0
 
-    else if dividendo < divisor then
-        dividendo
+    else if dividend < divisor then
+        dividend
 
     else
-        restoDiv (dividendo - divisor) divisor
+        remainder (dividend - divisor) divisor
 
 
 checkDiagonal : Int -> Int -> Bool
-checkDiagonal i m =
+checkDiagonal i size =
     let
-        r =
-            (i - 1) // m
+        row =
+            (i - 1) // size
 
-        c =
-            restoDiv (i - 1) m
+        column =
+            remainder (i - 1) size
     in
-    r == c || r - 1 == c
+    row == column || row - 1 == column
 
 
 generator : Random.Generator Int
@@ -45,8 +35,8 @@ generator =
 
 
 calc : Int -> Int
-calc n =
-    (n ^ 7) // 777
+calc i =
+    (i ^ 7) // 777
 
 
 getSeed : Int -> Random.Seed
@@ -55,11 +45,11 @@ getSeed i =
 
 
 generateList : Int -> List Int
-generateList m =
-    List.range 1 (m*m)
+generateList size =
+    List.range 1 (size * size)
         |> List.concatMap
             (\i ->
-                if checkDiagonal i m then
+                if checkDiagonal i size then
                     [ 0 ]
 
                 else
@@ -68,8 +58,8 @@ generateList m =
 
 
 graph : Int -> Matrix Int
-graph model =
-    Matrix.graphFromList model model (generateList (model))
+graph size =
+    Matrix.graphFromList size size (generateList size)
 
 
 infinity : number
@@ -82,13 +72,12 @@ borderConditional i j sizeGraph =
     i == 1 || j == 1 || i == sizeGraph || j == sizeGraph
 
 
-
 mazeConditional : Int -> Int -> Int -> Bool
 mazeConditional i j sizeGraph =
     (i == 1 && j == 1)
         || (i == 1 && j == 2)
         || (i == sizeGraph && j == sizeGraph)
-        || (i == sizeGraph && j == sizeGraph-1)
+        || (i == sizeGraph && j == sizeGraph - 1)
 
 
 drawGraph : Matrix Int -> Int -> List BoxDrawing.Shape
@@ -99,7 +88,7 @@ drawGraph maze sizeGraph =
                 List.range 1 (width maze)
                     |> List.concatMap
                         (\j ->
-                            if mazeConditional i j sizeGraph  then
+                            if mazeConditional i j sizeGraph then
                                 [ rectangle 0 0 single
                                     |> move infinity infinity
                                 ]

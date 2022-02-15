@@ -58,7 +58,8 @@ view model =
                             (drawGraph
                                 (graph
                                     (convert (String.toInt model.content))
-                                ) (convert (String.toInt model.content))
+                                )
+                                (convert (String.toInt model.content))
                             )
                         ]
                 ]
