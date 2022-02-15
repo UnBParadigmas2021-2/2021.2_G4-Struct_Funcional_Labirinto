@@ -24,9 +24,9 @@
 O projeto consiste em um jogo de labirinto, desenvolvido em linguagem funcional (Elm), que visa aplicar algoritmos de grafo para gerar e solucionar labirintos.
 
 ## Screenshots
-<img src="https://media.discordapp.net/attachments/825425258437541938/942939887387148338/unknown.png?width=976&height=475" width="500">
+<img src="https://media.discordapp.net/attachments/825425258437541938/942939887387148338/unknown.png?width=976&height=475" width="700">
 
-<img src="https://media.discordapp.net/attachments/825425258437541938/942940857454178385/unknown.png?width=982&height=475" width="500">
+<img src="https://media.discordapp.net/attachments/825425258437541938/942940857454178385/unknown.png?width=982&height=475" width="700">
 
 ## Instalação 
 **Linguagens**: Elm<br>
