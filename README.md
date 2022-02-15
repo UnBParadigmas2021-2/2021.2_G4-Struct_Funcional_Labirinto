@@ -24,7 +24,9 @@
 O projeto consiste em um jogo de labirinto, desenvolvido em linguagem funcional (Elm), que visa aplicar algoritmos de grafo para gerar e solucionar labirintos.
 
 ## Screenshots
-2 ou mais, em breve.
+<img src="https://media.discordapp.net/attachments/825425258437541938/942939887387148338/unknown.png?width=976&height=475" width="500">
+
+<img src="https://media.discordapp.net/attachments/825425258437541938/942940857454178385/unknown.png?width=982&height=475" width="500">
 
 ## Instalação 
 **Linguagens**: Elm<br>
@@ -34,14 +36,17 @@ Caso você queira compilar o projeto do zero, basta executar:
 $ docker-compose up --build
 ```
 
-Assim, você gera o arquivo "index.html". Você pode abrir esse arquivo em qualquer navegador.
+Assim, você gera o arquivo "index.html" e pode abrir esse arquivo em qualquer navegador.
 
 ## Uso 
 
-Explique como usar seu projeto, caso haja algum passo a passo após o comando de execução.
+Após a execução do comando docker mostrado acima, basta abrir a porta apontada pelo projeto no navegador:
+```
+http://localhost:3000/
+```
+E em seguida digitar no campo apresentado na tela o tamanho do labirinto que deseja gerar.
 
 ## Vídeo
 Adicione 1 ou mais vídeos com a execução do projeto.
 
 ## Outros 
-Quaisquer outras informações sobre seu projeto podem ser descritas a seguir.
